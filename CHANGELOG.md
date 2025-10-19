@@ -9,10 +9,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Planned
 - Additional real-world examples (e-commerce, API testing, mobile apps)
-- PICT syntax reference documentation
-- Helper scripts for PICT model generation
+- Enhanced PICT syntax reference documentation
+- Improved helper scripts for PICT model generation
 - Integration with test management tools
 - Support for higher-order combinatorial testing (3-way, 4-way)
+
+## [1.0.1] - 2025-10-19
+
+### Added
+- **Claude Code Plugin Marketplace support** - Users can now install via `/plugin` commands
+- `.claude-plugin/marketplace.json` - Marketplace catalog for plugin discovery
+- `.claude-plugin/plugin.json` - Complete plugin metadata with keywords and repository info
+- Plugin installation as Method 1 in README.md (easiest installation method)
+
+### Changed
+- Updated README.md with plugin marketplace installation instructions
+- Renumbered installation methods (now 5 methods: marketplace, git clone, submodule, minimal zip, full zip)
+- Updated author information: Omar Kamal Hosney <omar.wasat@gmail.com>
+
+### Improved
+- Easier installation process via plugin marketplace
+- Automated updates when using plugin marketplace
+- Better discoverability through Claude Code's plugin system
 
 ## [1.0.0] - 2025-10-19
 
