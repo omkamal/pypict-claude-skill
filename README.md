@@ -88,13 +88,13 @@ git clone --recurse-submodules <your-repo-url>
 git submodule update --init --recursive
 ```
 
-### Method 3: Download Minimal Package (Fastest)
+### Method 3: Download Minimal Package from Releases (Fastest) ⭐
 
-Download the pre-packaged minimal installation (9.3 KB):
+Download the pre-packaged minimal installation from [GitHub Releases](https://github.com/omkamal/pypict-claude-skill/releases):
 
 ```bash
-# Download the minimal package
-wget https://github.com/omkamal/pypict-claude-skill/raw/main/releases/pict-test-designer-minimal.zip
+# Download the latest minimal package from releases
+wget https://github.com/omkamal/pypict-claude-skill/releases/latest/download/pict-test-designer-minimal.zip
 
 # Extract and install for personal use
 unzip pict-test-designer-minimal.zip
@@ -107,6 +107,7 @@ mv pict-test-designer-minimal .claude/skills/pict-test-designer
 
 **What's included:** SKILL.md, LICENSE, references/ (syntax and examples)
 **What's excluded:** Full examples, helper scripts, extended documentation
+**Size:** ~9 KB | **Latest Version:** [See Releases](https://github.com/omkamal/pypict-claude-skill/releases)
 
 ### Method 4: Download Full Repository
 
