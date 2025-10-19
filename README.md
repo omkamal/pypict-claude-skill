@@ -44,9 +44,23 @@ PICT (Pairwise Independent Combinatorial Testing) is a combinatorial testing too
 
 ### Installation Methods
 
-Claude Code skills are installed by placing them in the `.claude/skills/` directory (for project-specific) or `~/.claude/skills/` directory (for personal use across all projects).
+Claude Code skills can be installed via the plugin marketplace or manually by placing them in the `.claude/skills/` directory.
 
-### Method 1: Install from GitHub (Recommended)
+### Method 1: Install via Claude Code Plugin Marketplace (Easiest) 🌟
+
+Install directly through Claude Code's plugin system:
+
+```bash
+# Add the marketplace
+/plugin marketplace add omkamal/pypict-claude-skill
+
+# Install the plugin
+/plugin install pict-test-designer@pypict-claude-skill
+```
+
+This automatically installs the skill and keeps it updated. The skill will be available across all your projects.
+
+### Method 2: Install from GitHub (Manual)
 
 **For Personal Use (All Projects):**
 
@@ -72,7 +86,7 @@ git add .claude/skills/pict-test-designer
 git commit -m "Add PICT test designer skill"
 ```
 
-### Method 2: Install via Git Submodule (Team Sharing)
+### Method 3: Install via Git Submodule (Team Sharing)
 
 If you want to share this skill with your team via version control:
 
@@ -88,7 +102,7 @@ git clone --recurse-submodules <your-repo-url>
 git submodule update --init --recursive
 ```
 
-### Method 3: Download Minimal Package from Releases (Fastest) ⭐
+### Method 4: Download Minimal Package from Releases
 
 Download the pre-packaged minimal installation from [GitHub Releases](https://github.com/omkamal/pypict-claude-skill/releases):
 
@@ -109,7 +123,7 @@ mv pict-test-designer-minimal .claude/skills/pict-test-designer
 **What's excluded:** Full examples, helper scripts, extended documentation
 **Size:** ~9 KB | **Latest Version:** [See Releases](https://github.com/omkamal/pypict-claude-skill/releases)
 
-### Method 4: Download Full Repository
+### Method 5: Download Full Repository
 
 1. **Download the repository** as a ZIP from GitHub
 2. **Extract to the skills directory**:
