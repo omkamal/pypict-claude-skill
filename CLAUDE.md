@@ -8,6 +8,21 @@ This is a Claude Code skill for designing comprehensive test cases using PICT (P
 
 **Core Purpose**: Given requirements or code, analyze the system to identify test parameters, generate PICT models with appropriate constraints, and format results with expected outputs.
 
+## Installation
+
+Skills in Claude Code are installed by placing them in the skills directory:
+- **Personal (all projects)**: `~/.claude/skills/pict-test-designer/`
+- **Project-specific**: `.claude/skills/pict-test-designer/`
+
+Installation command:
+```bash
+# Personal installation
+git clone https://github.com/omkamal/pypict-claude-skill.git ~/.claude/skills/pict-test-designer
+
+# Project-specific installation
+git clone https://github.com/omkamal/pypict-claude-skill.git .claude/skills/pict-test-designer
+```
+
 ## Repository Architecture
 
 ### Skill Definition (`SKILL.md`)
@@ -19,7 +34,7 @@ The main skill definition that Claude Code loads. Contains:
 - Expected output determination methods
 
 ### Documentation Structure
-- **README.md**: Installation guide (CLI & Desktop), quick start, ATM example summary
+- **README.md**: Installation guide with correct manual installation steps
 - **QUICKSTART.md**: 5-minute getting started guide with examples
 - **STRUCTURE.md**: Complete repository structure and file descriptions
 - **CONTRIBUTING.md**: Contribution guidelines, file structure, commit conventions
@@ -34,11 +49,6 @@ Real-world PICT testing examples following this structure:
 Python utilities for PICT model manipulation:
 - `pict_helper.py`: Generate models from JSON config, format output as markdown, parse PICT output to JSON
 
-### Specify Integration (`.specify/`)
-Integration with Speckit framework for specification-driven development:
-- Templates in `.specify/templates/` for spec, plan, tasks, checklist
-- Memory storage in `.specify/memory/`
-- Custom scripts in `.specify/scripts/`
 
 ## Key Workflows
 
@@ -131,6 +141,8 @@ parameters = {
 
 ## Python Helper Script Usage
 
+The `scripts/pict_helper.py` script provides utilities but is currently a basic implementation. For most use cases, generate PICT models directly in Python code as shown in SKILL.md workflow step 3.
+
 ```bash
 # Generate PICT model from JSON config
 python scripts/pict_helper.py generate config.json > model.txt
@@ -154,6 +166,8 @@ python scripts/pict_helper.py parse output.txt
     ]
 }
 ```
+
+**Note**: The helper script does not execute PICT itself. Users must use online tools or install PICT locally to generate actual test cases from the model.
 
 ## PICT Syntax Reference
 
@@ -209,17 +223,23 @@ IF [Parameter1] = "Value1" THEN [Parameter2] = "ValueA";
 - Reduction: X% from exhaustive testing
 ````
 
-## Adding New Examples
+## Working with Examples
+
+### Existing Examples
+- **ATM System** (`examples/atm-*`): Comprehensive financial system example
+  - Shows reduction from 25,920 combinations to 31 test cases (99.88%)
+  - Demonstrates complex constraints with 8 parameters
+  - Includes detailed specification and complete test plan
+
+### Adding New Examples
 
 When contributing examples to `examples/`:
 
-1. Create directory: `examples/example-name/`
-2. Add files:
-   - `README.md`: Overview and learning points
-   - `specification.md`: Original requirements
-   - `pict-model.txt`: Generated PICT model
-   - `test-plan.md`: Complete test plan with test cases
-3. Update `examples/README.md` to list the new example
+1. Follow the flat file structure in `examples/` (not subdirectories):
+   - `example-name-specification.md`: Original requirements
+   - `example-name-test-plan.md`: Complete test plan with PICT model and test cases
+2. Update `examples/README.md` to list the new example
+3. See CONTRIBUTING.md for complete guidelines
 
 ## Key Principles
 
@@ -230,9 +250,26 @@ When contributing examples to `examples/`:
 - **Constraint Documentation**: Always explain the rationale for constraints
 - **Specific Expectations**: Expected outputs should be detailed, not vague
 
+## Important Implementation Notes
+
+### Skill Activation
+This skill is defined in `SKILL.md` and is loaded by Claude Code when:
+- User requests test case design
+- User mentions PICT, pairwise testing, or combinatorial testing
+- User asks about testing with multiple parameters
+
+### PICT Execution
+**Critical**: This skill generates PICT models but does NOT execute PICT itself. Users must:
+1. Save the generated model to a `.txt` file
+2. Use online tools (pairwise.yuuniworks.com, pairwise.teremokgames.com) OR
+3. Install PICT locally and run: `pict model.txt > output.txt`
+
+### Direct Python Generation
+For most use cases, generate PICT models directly in Python as shown in SKILL.md step 3, rather than relying on the helper script.
+
 ## Dependencies
 
-- Python 3.7+ (for helper scripts)
+- Python 3.7+ (for helper scripts only, not required for main skill)
 - pypict (optional, for direct PICT integration): `pip install pypict --break-system-packages`
 - Online PICT tools available at:
   - https://pairwise.yuuniworks.com/
@@ -243,4 +280,3 @@ When contributing examples to `examples/`:
 Built upon:
 - **Microsoft PICT**: Original combinatorial testing tool
 - **pypict**: Python binding by Kenichi Maehashi
-- **Speckit**: Specification-driven development framework

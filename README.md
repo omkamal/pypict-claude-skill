@@ -40,98 +40,82 @@ PICT (Pairwise Independent Combinatorial Testing) is a combinatorial testing too
 ### Prerequisites
 
 - Claude Code CLI or Claude Code Desktop
-- GitHub connector enabled in Claude Code
 - (Optional) Python 3.7+ with `pypict` for advanced usage
 
-### Installing in Claude Code CLI
+### Installation Methods
 
-1. **Clone or reference this repository** in your Claude Code configuration:
+Claude Code skills are installed by placing them in the `.claude/skills/` directory (for project-specific) or `~/.claude/skills/` directory (for personal use across all projects).
 
-```bash
-# In your Claude Code CLI
-claude code config add-skill \
-  --name pict-test-designer \
-  --source github \
-  --repo yourusername/pypict-claude-skill \
-  --path /
-```
+### Method 1: Install from GitHub (Recommended)
 
-2. **Or manually add to your Claude Code configuration file** (`~/.config/claude/config.json`):
-
-```json
-{
-  "skills": [
-    {
-      "name": "pict-test-designer",
-      "source": "github",
-      "repository": "yourusername/pypict-claude-skill",
-      "path": "/"
-    }
-  ]
-}
-```
-
-3. **Restart Claude Code CLI** to load the skill:
+**For Personal Use (All Projects):**
 
 ```bash
-claude code restart
+# Clone the repository to your personal skills directory
+git clone https://github.com/omkamal/pypict-claude-skill.git ~/.claude/skills/pict-test-designer
+
+# Restart Claude Code to load the skill
+# The skill will now be available in all your projects
 ```
 
-4. **Verify installation**:
+**For Project-Specific Use:**
 
 ```bash
-claude code skills list
+# From your project directory
+git clone https://github.com/omkamal/pypict-claude-skill.git .claude/skills/pict-test-designer
+
+# Add to .gitignore if you don't want to commit it
+echo ".claude/skills/" >> .gitignore
+
+# Or commit it to share with your team
+git add .claude/skills/pict-test-designer
+git commit -m "Add PICT test designer skill"
 ```
 
-You should see `pict-test-designer` in the list.
+### Method 2: Install via Git Submodule (Team Sharing)
 
-### Installing in Claude Code Desktop
-
-1. **Open Claude Code Desktop**
-
-2. **Navigate to Settings** → **Skills**
-
-3. **Add New Skill**:
-   - Click "Add Skill from GitHub"
-   - Repository URL: `https://github.com/yourusername/pypict-claude-skill`
-   - Branch: `main` (or `master`)
-   - Skill Path: `/` (root directory)
-   - Click "Add Skill"
-
-4. **Enable the Skill**:
-   - Find "pict-test-designer" in your skills list
-   - Toggle the switch to enable it
-
-5. **Restart Claude Code Desktop** to ensure the skill is loaded
-
-### Alternative: Manual Installation
-
-If you prefer to install the skill locally:
-
-1. **Clone this repository**:
+If you want to share this skill with your team via version control:
 
 ```bash
-git clone https://github.com/yourusername/pypict-claude-skill.git
-cd pypict-claude-skill
+# From your project directory
+git submodule add https://github.com/omkamal/pypict-claude-skill.git .claude/skills/pict-test-designer
+git commit -m "Add PICT test designer skill as submodule"
+
+# Team members clone with:
+git clone --recurse-submodules <your-repo-url>
+
+# Or if already cloned:
+git submodule update --init --recursive
 ```
 
-2. **Copy to Claude skills directory**:
+### Method 3: Manual Download
+
+1. **Download the repository** as a ZIP from GitHub
+2. **Extract to the skills directory**:
 
 ```bash
-# For Claude Code CLI
-cp -r . ~/.config/claude/skills/pict-test-designer/
+# For personal use (all projects)
+unzip pypict-claude-skill-main.zip
+mv pypict-claude-skill-main ~/.claude/skills/pict-test-designer
 
-# For Claude Code Desktop (macOS)
-cp -r . ~/Library/Application\ Support/Claude/skills/pict-test-designer/
-
-# For Claude Code Desktop (Linux)
-cp -r . ~/.config/Claude/skills/pict-test-designer/
-
-# For Claude Code Desktop (Windows)
-xcopy /E /I . "%APPDATA%\Claude\skills\pict-test-designer\"
+# For project-specific use
+unzip pypict-claude-skill-main.zip
+mv pypict-claude-skill-main .claude/skills/pict-test-designer
 ```
 
-3. **Restart Claude Code**
+### Verify Installation
+
+After installation, restart Claude Code. The skill will load automatically when relevant. You can verify by asking Claude:
+
+```
+Do you have access to the pict-test-designer skill?
+```
+
+Or simply start using it:
+
+```
+Design test cases for a login function with username, password, and remember me checkbox.
+```
 
 ## 🚀 Quick Start
 

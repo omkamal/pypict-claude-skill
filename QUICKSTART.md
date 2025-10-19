@@ -4,26 +4,29 @@ Get started with PICT Test Designer in 5 minutes!
 
 ## Installation (Choose One)
 
-### Option 1: Claude Code CLI
+### Option 1: Personal Installation (All Projects)
 
 ```bash
-# Add the skill via GitHub
-claude code config add-skill \
-  --name pict-test-designer \
-  --source github \
-  --repo yourusername/pypict-claude-skill
+# Clone to your personal skills directory
+git clone https://github.com/omkamal/pypict-claude-skill.git ~/.claude/skills/pict-test-designer
 
-# Restart Claude Code
-claude code restart
+# Restart Claude Code - the skill is now available in all projects
 ```
 
-### Option 2: Claude Code Desktop
+### Option 2: Project-Specific Installation
 
-1. Open Claude Code Desktop
-2. Go to Settings → Skills
-3. Click "Add Skill from GitHub"
-4. Enter: `https://github.com/yourusername/pypict-claude-skill`
-5. Enable the skill and restart
+```bash
+# From your project directory
+git clone https://github.com/omkamal/pypict-claude-skill.git .claude/skills/pict-test-designer
+
+# Restart Claude Code - the skill is available in this project only
+```
+
+### Option 3: Manual Download
+
+1. Download ZIP from: `https://github.com/omkamal/pypict-claude-skill`
+2. Extract to `~/.claude/skills/pict-test-designer` (personal) or `.claude/skills/pict-test-designer` (project)
+3. Restart Claude Code
 
 ## Your First Test Plan (3 Steps)
 
