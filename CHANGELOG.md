@@ -14,6 +14,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Integration with test management tools
 - Support for higher-order combinatorial testing (3-way, 4-way)
 
+## [1.0.2] - 2025-10-19
+
+### Added
+- **Automotive Gearbox Control System example** - Advanced PICT example for safety-critical systems
+- `examples/gearbox-specification.md` - Comprehensive 10-section specification (3,600+ words)
+  - System components (sensors, actuators, controls)
+  - Operating modes (Manual, Sport, Eco)
+  - Functional requirements and safety features
+  - Error handling and fault tolerance
+  - Performance, environmental, and integration requirements
+- `examples/gearbox-test-plan.md` - Complete PICT test plan
+  - 12 parameters with complex interdependencies
+  - 14 business rules and safety constraints
+  - 40 test cases from ~159 billion combinations (99.999999975% reduction)
+  - Expected outputs with detailed system responses
+  - Priority-based execution plan, coverage analysis, traceability matrix
+  - Risk assessment for safety-critical scenarios
+
+### Changed
+- Updated `examples/README.md` with gearbox example section
+- Added advanced constraint modeling patterns documentation
+- Expanded learning points with multi-mode testing and fault injection examples
+
+### Documentation
+- Comprehensive gearbox specification covering all aspects of transmission control
+- Detailed test plan demonstrating advanced PICT usage
+- Learning material for complex parameter interactions and safety constraints
+
 ## [1.0.1] - 2025-10-19
 
 ### Added
