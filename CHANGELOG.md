@@ -26,6 +26,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Documentation structure (README, SKILL.md, examples)
 - GitHub Actions CI workflow
 - Example directory with ATM specification and test plan
+- **Minimal installation package (9.3 KB)** with essential files only
+- GitHub Release v1.0.0 with downloadable assets
+- Multiple installation methods (git clone, submodule, minimal ZIP, full ZIP)
 
 ### Features
 - Automated parameter identification from requirements
@@ -34,6 +37,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Pairwise test case generation
 - Support for multiple testing domains
 - Comprehensive documentation and examples
+- 80-99% test case reduction while maintaining coverage
+
+### Fixed
+- Corrected installation instructions (removed non-existent CLI commands)
+- Updated to use proper manual installation via `.claude/skills/` directory
+- Removed CLAUDE.md from version control (now user-specific)
+
+### Documentation
+- README.md: Corrected installation methods with 4 options
+- QUICKSTART.md: Updated with accurate installation steps
+- releases/README.md: Guide for using minimal package
+- README-INSTALL.txt: User-friendly guide included in minimal ZIP
 
 ### Credits
 - Built on Microsoft PICT
