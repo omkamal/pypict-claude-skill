@@ -57,6 +57,67 @@ This example demonstrates:
 - **Test prioritization**: Organizing tests by risk and criticality
 - **Traceability**: Linking test cases back to requirements
 
+## Automotive Gearbox Control System Example
+
+A sophisticated example demonstrating PICT methodology for testing a semi-automatic transmission control system with multiple operating modes and complex safety constraints.
+
+### Files
+
+- **[gearbox-specification.md](gearbox-specification.md)**: Comprehensive gearbox control system specification with 10 sections:
+  - System components (sensors, actuators, controls)
+  - Operating modes (Manual, Sport, Eco)
+  - Functional requirements (shift logic, safety features)
+  - Error handling and fault tolerance
+  - Performance and reliability requirements
+  - Environmental conditions and constraints
+
+- **[gearbox-test-plan.md](gearbox-test-plan.md)**: Complete test plan with PICT methodology:
+  - PICT model with 12 parameters and 14 constraints
+  - 40 optimized test cases (from ~159 billion combinations)
+  - Expected outputs with detailed system responses
+  - Priority-based test execution plan
+  - Coverage analysis and traceability matrix
+  - Risk assessment for high-risk scenarios
+
+### Key Statistics
+
+- **Total Parameters**: 12 (Mode, Gear, Speed, RPM, Throttle, Brake, Shift Request, Temperature, Road Condition, Incline, Sensor Status, Hydraulic Pressure)
+- **Exhaustive Combinations**: ~159,000,000,000 (159 billion)
+- **PICT Test Cases**: 40
+- **Reduction**: 99.999999975%
+- **Coverage**: All pairwise (2-way) interactions
+- **Constraints**: 14 complex business rules and safety constraints
+
+### How to Use This Example
+
+1. **Review the specification**: Read [gearbox-specification.md](gearbox-specification.md) for the complete system design
+
+2. **Study the test plan**: Examine [gearbox-test-plan.md](gearbox-test-plan.md) to see complex constraint modeling
+
+3. **Try it yourself**: Ask Claude to analyze specific scenarios:
+   ```
+   Using the pict-test-designer skill, analyze the gearbox specification
+   and generate test cases for the safety features section
+   ```
+
+4. **Learn constraint modeling**: This example shows advanced constraint patterns for:
+   - Mutually exclusive conditions (brake vs. throttle)
+   - Physical limitations (gear ratios, speed limits)
+   - Safety interlocks (reverse lockout, over-rev protection)
+   - Environmental adaptations (ice, temperature, incline)
+
+### Learning Points
+
+This example demonstrates:
+
+- **Complex parameter interactions**: 12-way parameter space with interdependencies
+- **Advanced constraint modeling**: Physical, safety, and operational constraints
+- **Multi-mode testing**: Different behaviors in Manual, Sport, and Eco modes
+- **Fault injection testing**: Sensor failures, temperature extremes, hydraulic issues
+- **Environmental testing**: Road conditions, incline, temperature variations
+- **Safety-critical testing**: Over-rev protection, reverse lockout, hill start assist
+- **Comprehensive traceability**: Complete mapping to specification requirements
+
 ### Additional Examples (Coming Soon)
 
 - E-commerce checkout testing
